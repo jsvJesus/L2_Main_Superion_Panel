@@ -1,0 +1,161 @@
+/* style.css */
+:root {
+    --bg-color: #0a0a0a;
+    --panel-bg: rgba(0, 0, 0, 0.85); /* Полупрозрачный черный */
+    --text-main: #f0f0f0;
+    --text-muted: #aaaaaa;
+    
+    /* Огненная палитра */
+    --fire-primary: #ff4500; /* Оранжевый красный */
+    --fire-secondary: #ffd700; /* Золотой */
+    --fire-glow: #b22222; /* Темно-красный для свечения */
+    
+    --border-color: #333;
+    --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    font-family: 'Segoe UI', 'Trajan Pro', serif; 
+    
+    /* ИЗМЕНЕНО: Базовый цвет фона */
+    background-color: #1a1a1a;
+    
+    background-image: url('image_7b2781.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Эффект затемнения фона для читаемости */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Затемнение фона */
+    z-index: -1;
+}
+
+.cabinet-wrapper {
+    background-color: var(--panel-bg);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.15); /* Легкое огненное свечение вокруг панели */
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #444;
+    border-top: 3px solid var(--fire-primary); /* Красная линия сверху */
+    backdrop-filter: blur(5px);
+    position: relative;
+}
+
+h2 { 
+    text-align: center; 
+    color: var(--fire-secondary); 
+    margin-bottom: 30px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Огненный эффект текста */
+    text-shadow: 0 0 10px var(--fire-glow), 0 0 20px var(--fire-primary);
+}
+
+.form-group { margin-bottom: 20px; }
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 0.85rem; 
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: var(--input-bg);
+    border: 1px solid #444;
+    color: white;
+    border-radius: 2px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input:focus { 
+    outline: none; 
+    border-color: var(--fire-primary); 
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    /* Градиентная кнопка как огонь */
+    background: linear-gradient(45deg, var(--fire-glow), var(--fire-primary));
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px black;
+}
+
+button:hover { 
+    background: linear-gradient(45deg, var(--fire-primary), var(--fire-secondary));
+    box-shadow: 0 0 15px var(--fire-primary);
+}
+
+.tabs { display: flex; justify-content: space-between; margin-bottom: 25px; border-bottom: 1px solid #444; }
+
+.tab-btn {
+    background: none; 
+    border: none; 
+    color: var(--text-muted);
+    cursor: pointer; 
+    padding-bottom: 10px; 
+    width: 50%;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none; /* Убираем тень кнопок для табов */
+}
+.tab-btn:hover { background: none; color: white; box-shadow: none; }
+
+.tab-btn.active { 
+    color: var(--fire-secondary); 
+    border-bottom: 2px solid var(--fire-primary); 
+    text-shadow: 0 0 10px var(--fire-glow);
+}
+
+.hidden { display: none; }
+
+.message { margin-top: 15px; text-align: center; font-size: 0.9rem; }
+.message.error { color: #ff5555; text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+.message.success { color: #55ff55; text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+
+.user-info { text-align: center; }
+.user-info p { margin: 10px 0; font-size: 1.1rem; }
+
+.logout-btn { 
+    background: #333; 
+    background-image: none;
+    border: 1px solid #555;
+}
+.logout-btn:hover { 
+    background: #444; 
+    box-shadow: none;
+    border-color: #777;
+}
